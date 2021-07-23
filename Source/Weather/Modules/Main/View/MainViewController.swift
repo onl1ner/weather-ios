@@ -49,7 +49,7 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     }
     
     @IBAction private func searchButtonPressed(_ sender: UIButton) -> () {
-        
+        self.presenter.searchButtonPressed()
     }
     
     public func set(city: String) -> () {

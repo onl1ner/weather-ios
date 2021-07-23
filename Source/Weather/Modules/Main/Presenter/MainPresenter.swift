@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MainPresenterProtocol: AnyObject {
+    func searchButtonPressed() -> ()
     func retrieveWeather() -> ()
     
     init(view: MainViewControllerProtocol, router: MainRouterProtocol)
@@ -31,30 +32,37 @@ final class MainPresenter: MainPresenterProtocol {
         }
     }
     
-    private func process(error: NetworkError) -> () {
+    private func process(error: AppError) -> () {
+        print(error.title, error.message)
+    }
+    
+    public func searchButtonPressed() -> () {
         
     }
     
     public func retrieveWeather() -> () {
         self.view?.showLoading()
         
-        Location.shared.location { location, city in
-            guard let location = location,
-                  let city = city
-            else { return }
-            
-            self.view?.set(city: city)
-            
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            
-            Network.shared.getCurrentWeather(for: lat, lon: lon) { result in
-                self.view?.stopLoading()
-                
-                switch result {
-                    case .success(let weather): self.process(weather: weather)
-                    case .failure(let error): self.process(error: error)
-                }
+        Location.shared.location { result in
+            switch result {
+                case .success(let response):
+                    let location = response.location
+                    let city = response.city
+                    
+                    self.view?.set(city: city)
+                    
+                    let lat = location.coordinate.latitude
+                    let lon = location.coordinate.longitude
+                    
+                    Network.shared.getCurrentWeather(for: lat, lon: lon) { result in
+                        self.view?.stopLoading()
+                        
+                        switch result {
+                            case .success(let weather): self.process(weather: weather)
+                            case .failure(let error): self.process(error: error)
+                        }
+                    }
+                case .failure(let error): self.process(error: error)
             }
         }
     }
