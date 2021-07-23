@@ -37,7 +37,7 @@ final class MainPresenter: MainPresenterProtocol {
     }
     
     public func searchButtonPressed() -> () {
-        
+        self.router.showSearch(with: self)
     }
     
     public func retrieveWeather() -> () {
@@ -71,4 +71,12 @@ final class MainPresenter: MainPresenterProtocol {
         self.view = view
         self.router = router
     }
+}
+
+extension MainPresenter: SearchDelegate {
+    
+    public func didSelect() -> () {
+        self.retrieveWeather()
+    }
+    
 }

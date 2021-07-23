@@ -23,6 +23,10 @@
 		088AEB7026AA86D10044242A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088AEB6E26AA86D10044242A /* LaunchScreen.storyboard */; };
 		08AC022526AAB5B40056E00E /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC022426AAB5B40056E00E /* LocationError.swift */; };
 		08AC022726AAB7980056E00E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC022626AAB7980056E00E /* AppError.swift */; };
+		08AC023626AABB9A0056E00E /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023126AABB9A0056E00E /* SearchPresenter.swift */; };
+		08AC023726AABB9A0056E00E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023226AABB9A0056E00E /* SearchViewController.swift */; };
+		08AC023826AABB9A0056E00E /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023326AABB9A0056E00E /* SearchBuilder.swift */; };
+		08AC023926AABB9A0056E00E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC023426AABB9A0056E00E /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		088AEB7126AA86D10044242A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08AC022426AAB5B40056E00E /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		08AC022626AAB7980056E00E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		08AC023126AABB9A0056E00E /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		08AC023226AABB9A0056E00E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		08AC023326AABB9A0056E00E /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
+		08AC023426AABB9A0056E00E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,8 +205,36 @@
 		08AC022326AAB2640056E00E /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				08AC023B26AAC2D60056E00E /* View */,
+				08AC023A26AAC2D20056E00E /* Presenter */,
+				08AC023C26AAC2D90056E00E /* Builder */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		08AC023A26AAC2D20056E00E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				08AC023126AABB9A0056E00E /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		08AC023B26AAC2D60056E00E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AC023426AABB9A0056E00E /* SearchViewController.xib */,
+				08AC023226AABB9A0056E00E /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08AC023C26AAC2D90056E00E /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				08AC023326AABB9A0056E00E /* SearchBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				088AEB7026AA86D10044242A /* LaunchScreen.storyboard in Resources */,
+				08AC023926AABB9A0056E00E /* SearchViewController.xib in Resources */,
 				088AEB6D26AA86D10044242A /* Assets.xcassets in Resources */,
 				088AEB6B26AA86D10044242A /* Main.storyboard in Resources */,
 				087EA4A226AA881D0091FEAE /* MainViewController.xib in Resources */,
@@ -280,7 +317,10 @@
 				087EA4B526AAA1630091FEAE /* Weather.swift in Sources */,
 				087EA4A326AA881D0091FEAE /* MainViewController.swift in Sources */,
 				087EA4AB26AA8A8B0091FEAE /* Location.swift in Sources */,
+				08AC023826AABB9A0056E00E /* SearchBuilder.swift in Sources */,
+				08AC023726AABB9A0056E00E /* SearchViewController.swift in Sources */,
 				08AC022726AAB7980056E00E /* AppError.swift in Sources */,
+				08AC023626AABB9A0056E00E /* SearchPresenter.swift in Sources */,
 				087EA4B226AA9FB10091FEAE /* NetworkError.swift in Sources */,
 				087EA4AE26AA9C760091FEAE /* Network.swift in Sources */,
 				087EA4A426AA881D0091FEAE /* MainRouter.swift in Sources */,
