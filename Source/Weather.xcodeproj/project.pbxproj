@@ -13,6 +13,10 @@
 		087EA4A526AA881D0091FEAE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA49F26AA881D0091FEAE /* MainBuilder.swift */; };
 		087EA4A626AA881D0091FEAE /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4A126AA881D0091FEAE /* MainPresenter.swift */; };
 		087EA4AB26AA8A8B0091FEAE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4AA26AA8A8B0091FEAE /* Location.swift */; };
+		087EA4AE26AA9C760091FEAE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4AD26AA9C760091FEAE /* Network.swift */; };
+		087EA4B026AA9CA20091FEAE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4AF26AA9CA10091FEAE /* Endpoint.swift */; };
+		087EA4B226AA9FB10091FEAE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4B126AA9FB10091FEAE /* NetworkError.swift */; };
+		087EA4B526AAA1630091FEAE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087EA4B426AAA1630091FEAE /* Weather.swift */; };
 		088AEB6426AA86D10044242A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088AEB6326AA86D10044242A /* AppDelegate.swift */; };
 		088AEB6B26AA86D10044242A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088AEB6926AA86D10044242A /* Main.storyboard */; };
 		088AEB6D26AA86D10044242A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 088AEB6C26AA86D10044242A /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 		087EA49F26AA881D0091FEAE /* MainBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		087EA4A126AA881D0091FEAE /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		087EA4AA26AA8A8B0091FEAE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		087EA4AD26AA9C760091FEAE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		087EA4AF26AA9CA10091FEAE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		087EA4B126AA9FB10091FEAE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		087EA4B426AAA1630091FEAE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		088AEB6026AA86D10044242A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088AEB6326AA86D10044242A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088AEB6A26AA86D10044242A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		087EA4A826AA8A800091FEAE /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				087EA4AC26AA9C6D0091FEAE /* Network */,
 				087EA4A926AA8A840091FEAE /* Location */,
 			);
 			path = Layers;
@@ -100,6 +109,24 @@
 				087EA4AA26AA8A8B0091FEAE /* Location.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		087EA4AC26AA9C6D0091FEAE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				087EA4AD26AA9C760091FEAE /* Network.swift */,
+				087EA4AF26AA9CA10091FEAE /* Endpoint.swift */,
+				087EA4B126AA9FB10091FEAE /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		087EA4B326AAA15D0091FEAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				087EA4B426AAA1630091FEAE /* Weather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		088AEB5726AA86D00044242A = {
@@ -151,6 +178,7 @@
 		088AEB7926AA87AF0044242A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				087EA4B326AAA15D0091FEAE /* Model */,
 				087EA49926AA881D0091FEAE /* View */,
 				087EA4A026AA881D0091FEAE /* Presenter */,
 				087EA49C26AA881D0091FEAE /* Router */,
@@ -232,9 +260,13 @@
 			files = (
 				087EA4A626AA881D0091FEAE /* MainPresenter.swift in Sources */,
 				087EA4A526AA881D0091FEAE /* MainBuilder.swift in Sources */,
+				087EA4B026AA9CA20091FEAE /* Endpoint.swift in Sources */,
 				088AEB6426AA86D10044242A /* AppDelegate.swift in Sources */,
+				087EA4B526AAA1630091FEAE /* Weather.swift in Sources */,
 				087EA4A326AA881D0091FEAE /* MainViewController.swift in Sources */,
 				087EA4AB26AA8A8B0091FEAE /* Location.swift in Sources */,
+				087EA4B226AA9FB10091FEAE /* NetworkError.swift in Sources */,
+				087EA4AE26AA9C760091FEAE /* Network.swift in Sources */,
 				087EA4A426AA881D0091FEAE /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

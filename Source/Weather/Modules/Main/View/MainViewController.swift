@@ -10,6 +10,7 @@ import UIKit
 protocol MainViewControllerProtocol: AnyObject {
     func set(city: String) -> ()
     func set(hint: String) -> ()
+    func set(image: UIImage?) -> ()
     func set(weather: String) -> ()
     func set(temperature: String) -> ()
     func set(wind: String) -> ()
@@ -57,6 +58,10 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     
     public func set(hint: String) -> () {
         self.hintLabel.text = hint
+    }
+    
+    public func set(image: UIImage?) {
+        self.weatherImageView.image = image
     }
     
     public func set(weather: String) -> () {

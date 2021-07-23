@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="Vid-Zr-NKC" id="X7N-Sy-0Zk"/>
                 <outlet property="cityLabel" destination="2q7-Ib-NeT" id="Lc3-Fa-OlR"/>
-                <outlet property="hintLabel" destination="nEQ-VK-qx9" id="dXj-Cr-jbQ"/>
+                <outlet property="hintLabel" destination="kgu-lH-zTC" id="VTM-d2-zBO"/>
                 <outlet property="humidityContainerView" destination="OG3-fF-1ie" id="v2B-DH-4Ud"/>
                 <outlet property="humidityLabel" destination="qTF-1P-sj2" id="zMk-yo-bEi"/>
                 <outlet property="mainStackView" destination="fmu-aQ-qqP" id="kD3-by-ZFI"/>
@@ -21,7 +21,7 @@
                 <outlet property="temperatureLabel" destination="Ela-SV-sbA" id="Nzu-hx-Jqr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="diT-kW-H1L"/>
                 <outlet property="weatherImageView" destination="zkE-i1-tsX" id="CCc-4r-EP1"/>
-                <outlet property="weatherLabel" destination="kgu-lH-zTC" id="fA6-Qt-bQ9"/>
+                <outlet property="weatherLabel" destination="nEQ-VK-qx9" id="Ap6-wZ-QYX"/>
                 <outlet property="windContainerView" destination="D91-xW-tdJ" id="lNP-H1-st5"/>
                 <outlet property="windLabel" destination="fjZ-Ad-8du" id="2XN-MF-1Pb"/>
             </connections>
@@ -52,7 +52,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-VK-qx9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-VK-qx9">
                                                     <rect key="frame" x="0.0" y="42.5" width="59" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -78,8 +78,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgu-lH-zTC">
-                                            <rect key="frame" x="20" y="80.5" width="40.5" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgu-lH-zTC">
+                                            <rect key="frame" x="26.5" y="80.5" width="27" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

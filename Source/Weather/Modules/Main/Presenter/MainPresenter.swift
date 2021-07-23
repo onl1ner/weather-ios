@@ -18,16 +18,44 @@ final class MainPresenter: MainPresenterProtocol {
     private weak var view: MainViewControllerProtocol?
     private var router: MainRouterProtocol
     
+    private var weather: Weather?
+    
+    private func process(weather: Weather) -> () {
+        self.view?.set(temperature: weather.temperature)
+        self.view?.set(weather: weather.weather)
+        self.view?.set(wind: weather.wind)
+        self.view?.set(humidity: weather.humidity)
+        
+        weather.icon { image in
+            self.view?.set(image: image)
+        }
+    }
+    
+    private func process(error: NetworkError) -> () {
+        
+    }
+    
     public func retrieveWeather() -> () {
         self.view?.showLoading()
         
         Location.shared.location { location, city in
-            if let location = location,
-               let city = city {
-                self.view?.stopLoading()
-                self.view?.set(city: city)
-            }
+            guard let location = location,
+                  let city = city
+            else { return }
             
+            self.view?.set(city: city)
+            
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            
+            Network.shared.getCurrentWeather(for: lat, lon: lon) { result in
+                self.view?.stopLoading()
+                
+                switch result {
+                    case .success(let weather): self.process(weather: weather)
+                    case .failure(let error): self.process(error: error)
+                }
+            }
         }
     }
     
