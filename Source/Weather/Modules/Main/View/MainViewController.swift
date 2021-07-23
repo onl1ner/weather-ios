@@ -37,9 +37,15 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet private weak var humidityContainerView: UIView!
     @IBOutlet private weak var humidityLabel: UILabel!
     
+    @IBOutlet private weak var refreshButton: UIButton!
+    
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     public var presenter: MainPresenterProtocol!
+    
+    @IBAction private func refreshButtonPressed(_ sender: UIButton) -> () {
+        self.presenter.retrieveWeather()
+    }
     
     @IBAction private func searchButtonPressed(_ sender: UIButton) -> () {
         
@@ -71,6 +77,7 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     
     public func showLoading() -> () {
         self.activityIndicator.startAnimating()
+        self.refreshButton.isEnabled = false
         
         UIView.animate(withDuration: 0.2) {
             self.mainStackView.alpha = 0.0
@@ -79,6 +86,7 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     
     public func stopLoading() -> () {
         self.activityIndicator.stopAnimating()
+        self.refreshButton.isEnabled = true
         
         UIView.animate(withDuration: 0.2) {
             self.mainStackView.alpha = 1.0
@@ -92,6 +100,8 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     
     override public func viewDidLoad() -> () {
         super.viewDidLoad()
+        
         self.initialConfiguration()
+        self.presenter.retrieveWeather()
     }
 }

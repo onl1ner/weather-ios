@@ -17,6 +17,7 @@
                 <outlet property="humidityContainerView" destination="OG3-fF-1ie" id="v2B-DH-4Ud"/>
                 <outlet property="humidityLabel" destination="qTF-1P-sj2" id="zMk-yo-bEi"/>
                 <outlet property="mainStackView" destination="fmu-aQ-qqP" id="kD3-by-ZFI"/>
+                <outlet property="refreshButton" destination="Y1U-iY-m6t" id="VUQ-n5-8F2"/>
                 <outlet property="temperatureLabel" destination="Ela-SV-sbA" id="Nzu-hx-Jqr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="diT-kW-H1L"/>
                 <outlet property="weatherImageView" destination="zkE-i1-tsX" id="CCc-4r-EP1"/>
@@ -173,7 +174,7 @@
                     </constraints>
                     <state key="normal" image="refresh"/>
                     <connections>
-                        <action selector="searchButtonPressed:" destination="-1" eventType="touchUpInside" id="2hR-WI-9xc"/>
+                        <action selector="refreshButtonPressed:" destination="-1" eventType="touchUpInside" id="NTK-Ui-BMJ"/>
                     </connections>
                 </button>
             </subviews>
