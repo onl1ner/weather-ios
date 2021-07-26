@@ -24,8 +24,6 @@ final class MainPresenter: MainPresenterProtocol {
     private func process(weather: Weather) -> () {
         self.view?.set(temperature: weather.temperature)
         self.view?.set(weather: weather.weather)
-        self.view?.set(wind: weather.wind)
-        self.view?.set(humidity: weather.humidity)
         
         weather.icon { image in
             self.view?.set(image: image)

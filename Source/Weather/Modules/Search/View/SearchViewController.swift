@@ -88,7 +88,4 @@ extension SearchViewController: MKLocalSearchCompleterDelegate {
         self.presenter.didUpdate(results: completer.results)
     }
     
-    public func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) -> () {
-        
-    }
 }

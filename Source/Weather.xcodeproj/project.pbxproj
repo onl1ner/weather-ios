@@ -102,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				087EA4A826AA8A800091FEAE /* Layers */,
-				08AC022626AAB7980056E00E /* AppError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -112,6 +111,7 @@
 			children = (
 				087EA4AC26AA9C6D0091FEAE /* Network */,
 				087EA4A926AA8A840091FEAE /* Location */,
+				08AC022626AAB7980056E00E /* AppError.swift */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
