@@ -16,6 +16,8 @@ protocol MainViewControllerProtocol: AnyObject {
     
     func showLoading() -> ()
     func stopLoading() -> ()
+    
+    func reloadData() -> ()
 }
 
 final class MainViewController: UIViewController, MainViewControllerProtocol {
@@ -44,6 +46,13 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
     
     @IBAction private func searchButtonPressed(_ sender: UIButton) -> () {
         self.presenter.searchButtonPressed()
+    }
+    
+    private func initialConfiguration() -> () {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.tableFooterView = .init()
     }
     
     public func set(city: String) -> () {
@@ -84,8 +93,35 @@ final class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
     
+    public func reloadData() -> () {
+        UIView.transition(with: self.tableView, duration: 0.2, options: .transitionCrossDissolve) {
+            self.tableView.reloadData()
+        }
+    }
+    
     override public func viewDidLoad() -> () {
         super.viewDidLoad()
+        
+        self.initialConfiguration()
         self.presenter.retrieveWeather()
     }
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.presenter.numberOfRows()
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = .init(style: .value1, reuseIdentifier: nil)
+        
+        cell.layoutMargins = .init(top: 0, left: 24, bottom: 0, right: 24)
+        
+        cell.textLabel?.text = self.presenter.title(for: indexPath)
+        cell.detailTextLabel?.text = self.presenter.value(for: indexPath)
+        
+        return cell
+    }
+    
 }

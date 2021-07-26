@@ -27,6 +27,7 @@
 		08AC023726AABB9A0056E00E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023226AABB9A0056E00E /* SearchViewController.swift */; };
 		08AC023826AABB9A0056E00E /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023326AABB9A0056E00E /* SearchBuilder.swift */; };
 		08AC023926AABB9A0056E00E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC023426AABB9A0056E00E /* SearchViewController.xib */; };
+		08AC023F26AF006D0056E00E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC023E26AF006D0056E00E /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		08AC023226AABB9A0056E00E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		08AC023326AABB9A0056E00E /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
 		08AC023426AABB9A0056E00E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		08AC023E26AF006D0056E00E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		087EA4A726AA8A7C0091FEAE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08AC023D26AF005C0056E00E /* Extensions */,
 				087EA4A826AA8A800091FEAE /* Layers */,
 			);
 			path = Common;
@@ -237,6 +240,14 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		08AC023D26AF005C0056E00E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08AC023E26AF006D0056E00E /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +323,7 @@
 				087EA4A626AA881D0091FEAE /* MainPresenter.swift in Sources */,
 				087EA4A526AA881D0091FEAE /* MainBuilder.swift in Sources */,
 				08AC022526AAB5B40056E00E /* LocationError.swift in Sources */,
+				08AC023F26AF006D0056E00E /* Date.swift in Sources */,
 				087EA4B026AA9CA20091FEAE /* Endpoint.swift in Sources */,
 				088AEB6426AA86D10044242A /* AppDelegate.swift in Sources */,
 				087EA4B526AAA1630091FEAE /* Weather.swift in Sources */,
