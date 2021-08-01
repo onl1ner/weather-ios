@@ -7,6 +7,21 @@
 
 import UIKit
 
+enum WeatherHint: String {
+     case cold = "It's cold outside, in this weather it's better to dress in layers."
+     case cool = "The weather is cool outside, so dress warmly."
+     case warm = "Warm, wear light clothes and drink water."
+
+     init(number: Int) {
+         switch number {
+             case ..<0: self = .cold
+             case 0..<15: self = .cool
+             case 15...: self = .warm
+             default: self = .warm
+         }
+     }
+ }
+
 enum WeatherInfoType: Int, CaseIterable {
     case feelsLike = 0
     case wind
@@ -123,6 +138,10 @@ struct Weather: Codable {
     
     public var visibility: String {
         return "\(self.visibilityRaw / 1000) km"
+    }
+    
+    public var hint: String {
+        return WeatherHint(number: Int(round(self.temp))).rawValue
     }
     
     public func icon(completion: @escaping (UIImage?) -> ()) -> () {

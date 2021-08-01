@@ -31,6 +31,7 @@ final class MainPresenter: MainPresenterProtocol {
         
         self.view?.set(temperature: weather.temperature)
         self.view?.set(weather: weather.weather)
+        self.view?.set(hint: weather.hint)
         
         weather.icon { image in
             self.view?.set(image: image)
