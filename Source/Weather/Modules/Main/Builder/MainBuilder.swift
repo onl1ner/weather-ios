@@ -14,7 +14,7 @@ final class MainBuilder {
         let router = MainRouter(view: view)
         let presenter = MainPresenter(view: view, router: router)
         
-        view.tabBarItem = .init(title: "Main", image: nil, tag: 0)
+        view.tabBarItem = .init(title: "Main", image: .init(named: "icon.tab.bar.main"), tag: 0)
         
         view.presenter = presenter
         
