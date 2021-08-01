@@ -7,7 +7,8 @@
 
 import CoreLocation
 
-typealias LocationCallback = (Result<(location: CLLocation, city: String), LocationError>) -> ()
+typealias LocationResult = Result<(location: CLLocation, city: String), LocationError>
+typealias LocationCallback = (LocationResult) -> ()
 
 protocol LocationProtocol {
     func set(lat: Double, lon: Double) -> ()
@@ -54,6 +55,17 @@ final class Location: NSObject, LocationProtocol {
         }
     }
     
+    private func process(location: CLLocation, completion: LocationCallback?) -> () {
+        self.city(for: location) { city in
+            guard let city = city else {
+                completion?(.failure(.geocode))
+                return
+            }
+            
+            completion?(.success((location, city)))
+        }
+    }
+    
     public func set(lat: Double, lon: Double) -> () {
         self.choosenLocation = .init(latitude: lat, longitude: lon)
     }
@@ -63,16 +75,8 @@ final class Location: NSObject, LocationProtocol {
     }
     
     public func location(completion: LocationCallback?) -> () {
-        if let choosenLocation = self.choosenLocation {
-            self.city(for: choosenLocation) { city in
-                if let city = city {
-                    completion?(.success((choosenLocation, city)))
-                } else {
-                    completion?(.failure(.geocode))
-                }
-            }
-            
-            return
+        if let location = self.choosenLocation {
+            return self.process(location: location, completion: completion)
         }
         
         self.locationCallback = completion
@@ -81,7 +85,7 @@ final class Location: NSObject, LocationProtocol {
             return self.authorize()
         }
         
-        self.manager.requestLocation()
+        self.manager.startUpdatingLocation()
     }
     
     override public init() {
@@ -92,6 +96,9 @@ final class Location: NSObject, LocationProtocol {
         self.manager.delegate = self
     }
     
+    deinit {
+        self.manager.stopUpdatingLocation()
+    }
 }
 
 extension Location: CLLocationManagerDelegate {
@@ -107,12 +114,8 @@ extension Location: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> () {
         guard let location = locations.last else { return self.flush(reason: .internal) }
         
-        self.city(for: location) { city in
-            guard let city = city else { return self.flush(reason: .internal) }
-            
-            self.locationCallback?(.success((location, city)))
-            self.locationCallback = nil
-        }
+        self.process(location: location, completion: self.locationCallback)
+        self.locationCallback = nil
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) -> () {
